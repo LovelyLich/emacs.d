@@ -1,4 +1,9 @@
-(require 'package)
+;; check emacs version
+(if (version< emacs-version "24.4")
+    (when (load (expand-file-name "~/.emacs.d/elpa/package.el"))
+      (package-initialize))
+  (require 'package))
+
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
